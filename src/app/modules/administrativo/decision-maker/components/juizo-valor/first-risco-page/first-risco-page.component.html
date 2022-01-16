@@ -1,0 +1,28 @@
+<div class="maria-penha-inner-body">
+  <form [formGroup]="formGroup">
+    <mat-radio-group [color]="'accent'" class="maria-mat-radio-group" formControlName="riscoViolencia">
+      <mat-label>Risco de Violência</mat-label>
+      <mat-radio-button style="margin-right: 10px; margin-left: 10px;" [value]="true">Verossímil</mat-radio-button>
+      <mat-radio-button [value]="false">Inverossímil</mat-radio-button>
+    </mat-radio-group>
+    <mat-radio-group [color]="'accent'" class="maria-mat-radio-group" formControlName="perfilRequerido">
+      <mat-label>Perfil do Requerido</mat-label>
+      <mat-radio-button style="margin-right: 10px; margin-left: 10px;" [value]="true">Verossímil</mat-radio-button>
+      <mat-radio-button [value]="false">Inverossímil</mat-radio-button>
+    </mat-radio-group>
+  </form>
+  <footer class="maria-glide-buttons-area">
+    <div class="slider-button-container">
+      <button class="maria-slider-button" (click)="previousPage()">
+        <svg-icon class="reverse" src="/assets/icons/glide/chevron-right.svg"></svg-icon>
+        Voltar
+      </button>
+    </div>
+    <div class="slider-button-container">
+      <button class="maria-slider-button" [disabled]="formGroup.invalid" id="btn-avancar-2" (click)="nextPage()">
+        Avançar
+        <svg-icon src="/assets/icons/glide/chevron-right.svg"></svg-icon>
+      </button>
+    </div>
+  </footer>
+</div>

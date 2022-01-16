@@ -1,0 +1,50 @@
+@import 'src/styles/variables.scss';
+
+.decision-container {
+  display: flex;
+  flex-direction: column;
+  .header {
+    color: $dark-pink;
+    font-weight: 600;
+  }
+  .line {
+    color: $light-gray;
+  }
+}
+
+.leitura-page {
+  display: flex;
+  flex-direction: column;
+  .midia {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    color: $ice-steel;
+    cursor: pointer;
+    .midia-box {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 50px;
+      background-color: $light-purple;
+      border-radius: 10px;
+      box-shadow: $shadow-always;
+      margin-right: 5px;
+      mat-icon {
+        color: #fff;
+      }
+    }
+  }
+  .midia-disabled {
+    cursor: default;
+    color: $ice-steel;
+    .midia-box {
+      background-color: $light-gray;
+    }
+  }
+}

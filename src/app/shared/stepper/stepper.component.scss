@@ -1,0 +1,53 @@
+@import '../../../styles/variables.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  .stepper-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    .step-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      .circle {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        margin-right: 5px;
+        border: 1px solid $light-purple;
+        color: $light-purple;
+        width: 30px;
+        height: 30px;
+      }
+      span {
+        color: $light-gray;
+      }
+      .fullfill {
+        background-color: $light-purple;
+        color: #fff;
+      }
+    }
+  }
+  .processo-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-left: 20px;
+    .processo {
+      color: $light-gray;
+      font-weight: 600;
+      font-size: 16px
+    }
+    .tipo {
+      color: $dark-pink;
+      font-weight: 600;
+    }
+  }
+}

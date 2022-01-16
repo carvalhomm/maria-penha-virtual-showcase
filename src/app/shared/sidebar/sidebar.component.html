@@ -1,0 +1,26 @@
+<mat-sidenav-container class="sidebar" (backdropClick)="close()">
+  <mat-sidenav #sidenav mode="over">
+    <div class="logo">
+      <svg-icon src="../../../assets/icons/DIREITOAGIL_LOGO.svg"></svg-icon>
+    </div>
+    <div (click)="navigateTo('administrativo')" class="sidebar-option" [ngClass]="{'sidebar-option-disabled': !hasPermission('administrativo')}">
+      <span>Administrativo</span>
+      <mat-icon>account_balance</mat-icon>
+    </div>
+    <div (click)="navigateTo('analytics')" class="sidebar-option" [ngClass]="{'sidebar-option-disabled': !hasPermission('analytics')}">
+      <span>Analytics</span>
+      <mat-icon>leaderboard</mat-icon>
+    </div>
+    <div (click)="navigateTo('configuracoes')" class="sidebar-option">
+      <span>Configurações</span>
+      <mat-icon>settings</mat-icon>
+    </div>
+    <div (click)="logout()" class="sidebar-option">
+      <span>Logout</span>
+      <mat-icon>logout</mat-icon>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

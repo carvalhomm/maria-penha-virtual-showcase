@@ -1,0 +1,8 @@
+@import 'src/styles/variables.scss';
+
+.icon-add {
+  cursor: pointer;
+  &:hover {
+    color: $light-pink;
+  }
+}

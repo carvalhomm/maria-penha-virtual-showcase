@@ -1,0 +1,24 @@
+<mat-card [ngClass]="{'number-card': chartType === 'text'}">
+  <mat-card-title>{{ chartTitle }}</mat-card-title>
+  <mat-card-content>
+    <mat-progress-spinner *ngIf="loading; else chart" mode="indeterminate"></mat-progress-spinner>
+    <ng-template #chart>
+      <div class="chart-container">
+        <span class="chart-data" *ngIf="chartType === 'text'">{{ numberData }}</span>
+        <ngx-charts-bar-vertical *ngIf="chartType === 'vertical-bar'" [view]="[350, 300]" [scheme]="colorScheme" [results]="data"></ngx-charts-bar-vertical>
+        <ngx-charts-bar-horizontal *ngIf="chartType === 'horizontal-bar'" [view]="[350, 300]" [scheme]="colorScheme" [results]="data"></ngx-charts-bar-horizontal>
+        <ngx-charts-pie-chart *ngIf="chartType === 'pie'" [view]="[350, 300]" [scheme]="colorScheme" [results]="data"></ngx-charts-pie-chart>
+        <ngx-charts-area-chart *ngIf="chartType === 'area'" [view]="[350, 300]" [scheme]="colorScheme" [results]="data"></ngx-charts-area-chart>
+        <ngx-charts-line-chart *ngIf="chartType === 'line'" [view]="[350, 300]" [scheme]="colorScheme" [results]="data"></ngx-charts-line-chart>
+        <ngx-charts-gauge *ngIf="chartType === 'gauge'" [view]="[350, 300]" [scheme]="colorScheme" [results]="data"></ngx-charts-gauge>
+      </div>
+      <div class="legend-container" *ngIf="chartType !== 'text'">
+        <span class="legend">Legenda:</span>
+        <div *ngFor="let legend of legends" class="legend-box">
+          <div class="legend-color" [ngStyle]="{'background-color': legend.color}"></div>
+          <span>{{ legend.name }}</span>
+        </div>
+      </div>
+    </ng-template>
+  </mat-card-content>
+</mat-card>

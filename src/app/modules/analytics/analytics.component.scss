@@ -1,0 +1,26 @@
+@import 'src/styles/variables.scss';
+
+.analytics-page {
+  display: flex;
+  flex-direction: column;
+  .analytics-actions {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 50px;
+    border-bottom: 1px solid $vanilla;
+    button {
+      margin: 0;
+      margin-right: 20px;
+      &:first-of-type {
+        margin-left: 20px;
+      }
+    }
+  }
+  .dashboards {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

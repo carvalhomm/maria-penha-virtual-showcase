@@ -1,0 +1,24 @@
+<div class="maria-penha-inner-body">
+  <span>Os campos podem ser editados caso haja necessidade</span>
+  <form [formGroup]="formGroup" class="maria-form-group">
+    <mat-checkbox [checked]="formGroup.get('violenciaFisica').value" [color]="'accent'" formControlName="violenciaFisica">Violência Física</mat-checkbox>
+    <mat-checkbox [checked]="formGroup.get('violenciaPsicologica').value" [color]="'accent'" formControlName="violenciaPsicologica">Violência Psicológica</mat-checkbox>
+    <mat-checkbox [checked]="formGroup.get('violenciaSexual').value" [color]="'accent'" formControlName="violenciaSexual">Violência Sexual</mat-checkbox>
+    <mat-checkbox [checked]="formGroup.get('violenciaPatrimonial').value" [color]="'accent'" formControlName="violenciaPatrimonial">Violência Patrimonial</mat-checkbox>
+    <mat-checkbox [checked]="formGroup.get('violenciaMoral').value" [color]="'accent'" formControlName="violenciaMoral">Violência Moral</mat-checkbox>
+  </form>
+  <footer class="maria-glide-buttons-area">
+    <div class="slider-button-container">
+      <button class="maria-slider-button" (click)="previousPage()">
+        <svg-icon class="reverse" src="/assets/icons/glide/chevron-right.svg"></svg-icon>
+        Voltar
+      </button>
+    </div>
+    <div class="slider-button-container">
+      <button class="maria-slider-button" id="btn-avancar-2" (click)="nextPage()">
+        Avançar
+        <svg-icon src="/assets/icons/glide/chevron-right.svg"></svg-icon>
+      </button>
+    </div>
+  </footer>
+</div>

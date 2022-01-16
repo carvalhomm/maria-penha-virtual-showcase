@@ -1,0 +1,95 @@
+@import '../../../styles/variables.scss';
+
+.mat-dialog-title {
+  margin-bottom: 10px;
+}
+
+.title {
+  flex-direction: row;
+  font-weight: 600;
+  font-size: 16pt;
+  color: $light-purple;
+
+  span{
+    color: $light-purple;
+    white-space: normal;
+  }
+}
+
+.content-box {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 10pt;
+    margin-bottom: 15px;
+    padding: 5px;
+    border: 1px solid $steel;
+    box-shadow: $shadow-always;
+    span {
+      color: $light-purple;
+      white-space: normal;
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+    .relato-vitima {
+      color: $ice-steel;
+    }
+    .download {
+      cursor: pointer;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      mat-icon {
+        color: $light-purple;
+      }
+      span {
+        margin-left: 5px;
+      }
+      &:hover {
+        span {
+          color: $light-purple;
+        }
+      }
+    }
+  }
+  .content-pdf {
+    align-items: unset;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+.close-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  box-shadow: 0 1px 3px 0 rgba(55, 63, 81, .15);
+  background-color: #fff;
+  transition: color .25s ease-in-out;
+  border: 1px solid $dark-purple;
+  border-radius: 5px;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  color: $light-gray;
+  letter-spacing: .8px;
+  outline: 0;
+  padding: 10px 15px 10px 15px;
+  cursor: pointer;
+  &:hover {
+    transition: color .25s ease-in-out;
+    color: $light-purple;
+  }
+}

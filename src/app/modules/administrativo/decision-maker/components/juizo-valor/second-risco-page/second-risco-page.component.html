@@ -1,0 +1,24 @@
+<div class="maria-penha-inner-body">
+  <form [formGroup]="formGroup">
+    <span>No caso dos autos verifica-se que</span>
+    <mat-form-field style="width: 100%;">
+      <mat-label>No caso dos autos verifica-se que</mat-label>
+      <textarea style="height: 400px;" matInput formControlName="casoAutos"></textarea>
+      <mat-error *ngIf="formGroup.get('casoAutos').invalid && formGroup.get('casoAutos').touched"></mat-error>
+    </mat-form-field>
+  </form>
+  <footer class="maria-glide-buttons-area">
+    <div class="slider-button-container">
+      <button class="maria-slider-button" (click)="previousPage()">
+        <svg-icon class="reverse" src="/assets/icons/glide/chevron-right.svg"></svg-icon>
+        Voltar
+      </button>
+    </div>
+    <div class="slider-button-container">
+      <button class="maria-slider-button" [disabled]="formGroup.invalid" id="btn-avancar-2" (click)="nextPage()">
+        Avançar
+        <svg-icon src="/assets/icons/glide/chevron-right.svg"></svg-icon>
+      </button>
+    </div>
+  </footer>
+</div>

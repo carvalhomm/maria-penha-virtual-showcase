@@ -1,0 +1,28 @@
+@import '../../../styles/variables.scss';
+
+.mat-dialog-title {
+  margin-bottom: 10px;
+}
+
+div {
+  display: flex;
+  &.title {
+    flex-direction: row;
+    font-weight: 600;
+    font-size: 16pt;
+    color: $dark-pink;
+    span{
+      color: $dark-pink;
+      white-space: normal;
+    }
+  }
+  &.content {
+    flex-direction: column;
+    font-size: 10pt;
+    margin-bottom: 15px;
+    span{
+      color: $light-gray;
+      white-space: normal;
+    }
+  }
+}

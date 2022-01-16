@@ -1,0 +1,22 @@
+{
+  "projects": {
+    "default": "maria-penha-virtual",
+    "development": "maria-penha-virtual-dev"
+  },
+  "targets": {
+    "maria-penha-virtual": {
+      "hosting": {
+        "maria-penha-virtual": [
+          "maria-penha-virtual"
+        ]
+      }
+    },
+    "maria-penha-virtual-dev": {
+      "hosting": {
+        "maria-penha-virtual-dev": [
+          "maria-penha-virtual-dev"
+        ]
+      }
+    }
+  }
+}

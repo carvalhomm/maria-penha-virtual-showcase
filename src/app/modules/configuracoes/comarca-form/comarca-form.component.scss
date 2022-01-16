@@ -1,0 +1,39 @@
+@import 'src/styles/variables.scss';
+
+.locais-container {
+  display: flex;
+  flex-direction: column;
+  .local-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    width: 250px;
+    height: 150px;
+    border-radius: 20px;
+    box-shadow: $shadow;
+    transition: color 0.5s ease-in-out;
+    color: $ice-steel;
+    mat-icon {
+      transition: color 0.5s ease-in-out;
+      color: $ice-steel;
+    }
+    &:hover {
+      cursor: pointer;
+      transition: color 0.5s ease-in-out;
+      color: $dark-pink;
+      mat-icon {
+        transition: color 0.5s ease-in-out;
+        color: $dark-pink
+      }
+    }
+  }
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -1,0 +1,55 @@
+<div class="maria-penha-inner-body">
+  <mat-progress-spinner *ngIf="!midias" mode="indeterminate"></mat-progress-spinner>
+  <div class="decision-container" *ngIf="decisionMade">
+    <span class="header">Processo julgado</span>
+    <span class="line">Juiz: {{ decisionMade.juiz }}</span>
+    <span class="line">Data: {{ decisionMade.data | date }}</span>
+  </div>
+  <div class="leitura-page" *ngIf="midias">
+    <form [formGroup]="formGroup">
+      <mat-form-field>
+        <mat-label>Número do Processo</mat-label>
+        <input type="number" matInput formControlName="numeroProcesso">
+        <mat-error *ngIf="formGroup.get('numeroProcesso').touched && formGroup.get('numeroProcesso').invalid">Número do Processo é obrigatório</mat-error>
+      </mat-form-field>
+    </form>
+    <div class="midia" [ngClass]="{'midia-disabled': !data.pedidoMPU}" (click)="openMidia([data.pedidoMPU])">
+      <div class="midia-box">
+        <mat-icon>picture_as_pdf</mat-icon>
+      </div>
+      <div class="midia-label">
+        Leia o pedido de MPU
+      </div>
+    </div>
+    <div class="midia" [ngClass]="{'midia-disabled': !data.relatoVitima || data.relatoVitima.length === 0}"  (click)="openMidia(data.relatoVitima, 'Relato da Vítima')">
+      <div class="midia-box">
+        <mat-icon>mic</mat-icon>
+      </div>
+      <div class="midia-label">
+        Ouça ou leia o relato da vítima
+      </div>
+    </div>
+    <div class="midia" [ngClass]="{'midia-disabled': !data.provasAnexadas || data.provasAnexadas.length === 0}"  (click)="openMidia(data.provasAnexadas)">
+      <div class="midia-box">
+        <mat-icon>insert_photo</mat-icon>
+      </div>
+      <div class="midia-label">
+        Veja as fotos e outros meteriais anexados pela vítima
+      </div>
+    </div>
+  </div>
+  <footer class="maria-glide-buttons-area">
+    <div class="slider-button-container">
+      <button class="maria-slider-button" (click)="previousPage()">
+        <svg-icon class="reverse" src="/assets/icons/glide/chevron-right.svg"></svg-icon>
+        Voltar
+      </button>
+    </div>
+    <div class="slider-button-container">
+      <button class="maria-slider-button" id="btn-avancar-2" [disabled]="formGroup.invalid" (click)="nextPage()">
+        Avançar
+        <svg-icon src="/assets/icons/glide/chevron-right.svg"></svg-icon>
+      </button>
+    </div>
+  </footer>
+</div>

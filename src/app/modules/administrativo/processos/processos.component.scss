@@ -1,0 +1,41 @@
+@import 'src/styles/variables.scss';
+
+.processos-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  color: $ice-steel;
+  .span-field {
+    margin-bottom: 20px;
+  }
+  .processos-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .processo-box {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 50px;
+      font-weight: 600;
+      border: 1px solid $vanilla;
+      box-sizing: border-box;
+      transition: border-color ease-in-out 0.5s;
+      box-shadow: $shadow;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      &:last-of-type {
+        margin-bottom: 0px;
+      }
+      &:hover {
+        transition: border-color easy-in-out 0.5s;
+        border-color: $sky-purple;
+        box-shadow: $shadow-hover;
+      }
+    }
+  }
+}

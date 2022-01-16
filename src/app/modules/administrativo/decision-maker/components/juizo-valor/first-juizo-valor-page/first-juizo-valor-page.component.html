@@ -1,0 +1,18 @@
+<div class="maria-penha-inner-body">
+  <div *ngIf="decisaoJuiz?.decideNow" class="juizo-valor risco" (click)="decideNow()">
+    <mat-icon>error</mat-icon>
+    <span>Decidir agora risco à vida ou integridade</span>
+  </div>
+  <div *ngIf="decisaoJuiz?.waitForContraditory" class="juizo-valor esperar" (click)="waitForContraditory()">
+    <mat-icon>pause</mat-icon>
+    <span>Esperar contraditório - baixo risco</span>
+  </div>
+  <footer class="maria-glide-buttons-area">
+    <div class="slider-button-container">
+      <button class="maria-slider-button" (click)="previousPage()">
+        <svg-icon class="reverse" src="/assets/icons/glide/chevron-right.svg"></svg-icon>
+        Voltar
+      </button>
+    </div>
+  </footer>
+</div>

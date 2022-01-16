@@ -1,0 +1,60 @@
+<div class="form-root">
+    <mat-progress-spinner *ngIf="loading; else form" mode="indeterminate"></mat-progress-spinner>
+    <ng-template #form>
+        <form *ngIf="!createMode" [formGroup]="selectUserForm">
+            <mat-form-field>
+                <mat-label>Selecione o usuário para editar</mat-label>
+                <mat-select formControlName="userSelection" disableOptionCentering>
+                    <mat-option (click)="userSelected(user)" *ngFor="let user of users" [value]="user">{{ user.name }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </form>
+        <form *ngIf="createMode || user" [formGroup]="formGroup">
+            <mat-form-field>
+                <mat-label>Nome</mat-label>
+                <input matInput formControlName="name" type="text">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" type="text">
+            </mat-form-field>
+            <mat-form-field [disabled]="!createMode">
+                <mat-label>Senha</mat-label>
+                <input matInput formControlName="password" type="password">
+            </mat-form-field>
+            <mat-radio-group [color]="'accent'" class="maria-mat-radio-group" formControlName="admin" (change)="adminSelected()">
+                <mat-label>Administrador</mat-label>
+                <mat-radio-button style="margin-right: 10px; margin-left: 10px;" [value]="true">Sim</mat-radio-button>
+                <mat-radio-button [value]="false">Não</mat-radio-button>
+            </mat-radio-group>
+            <mat-form-field>
+                <mat-label>Papel do Usuário</mat-label>
+                <mat-select formControlName="role" disableOptionCentering>
+                    <mat-option *ngFor="let role of roles" [value]="role">{{ role }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>UF</mat-label>
+                <mat-select formControlName="state" disableOptionCentering>
+                    <mat-option (click)="ufSelected(uf)" *ngFor="let uf of states" [value]="uf">{{ uf }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Cidade</mat-label>
+                <mat-select formControlName="city" disableOptionCentering>
+                    <mat-option (click)="citySelected(cidade)" *ngFor="let cidade of cidades" [value]="cidade">{{ cidade }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Comarca</mat-label>
+                <mat-select formControlName="juizadoResponsavel" disableOptionCentering>
+                    <mat-option *ngFor="let juizado of juizados" [value]="juizado.key">{{ juizado.nome }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </form>
+    </ng-template>
+    <div class="buttons-container">
+        <button class="maria-primary-button" (click)="saveUser()">Salvar</button>
+        <button class="maria-primary-button" [disabled]="createMode" (click)="deleteUser()">Deletar</button>
+    </div>
+</div>

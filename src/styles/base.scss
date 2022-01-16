@@ -1,0 +1,247 @@
+@import './variables.scss';
+@import "~@angular/cdk/overlay-prebuilt.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: ROBOTO;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: ROBOTO;
+  font-weight: 500;
+  font-style: normal;
+  background: #fff;
+  color: $ice-steel;
+}
+
+// ScrollBar Design
+::-webkit-scrollbar {
+  width: 6px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $light-blue;
+  border-radius: 10px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $light-blue;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.mpv-stepper-group {
+  margin-top: 25px;
+  width: 100%;
+  .mat-tab-header {
+    display: none;
+  }
+  .mat-tab-body-content {
+    padding: 0 8px;
+    overflow: auto;
+  }
+  .mat-tab-label:first-child {
+    padding: 0;
+    justify-content: flex-end;
+    margin-right: 10px;
+    @media screen and (min-width: 700px) {
+      margin-right: 60px;
+    }
+  }
+  .mat-tab-label:last-child {
+    padding: 0;
+    justify-content: flex-start;
+    margin-left: 10px;
+    @media screen and (min-width: 700px) {
+      margin-left: 60px;
+    }
+  }
+  .mat-ink-bar {
+    height: 4px;
+    background-color: $light-pink !important;
+  }
+}
+
+.slider-page {
+  position: relative;
+  display: none;
+
+  &.active {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.maria-penha-inner-body {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  padding-bottom: 10px;
+  min-height: 350px;
+}
+
+.mat-tab-group .mat-tab-body-content {
+  overflow: hidden !important;
+}
+
+.maria-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.maria-glide-buttons-area {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #fff;
+  z-index: 10;
+  .slider-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  > label {
+    width: 65px;
+    opacity: 0.6;
+  }
+  @media screen and (min-width: 360px) {
+    padding-top: 20px;
+  }
+}
+
+button:focus {
+  outline: none;
+}
+
+.maria-primary-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  opacity: 0.9;
+  box-shadow: 0 1px 3px 0 rgba(55, 63, 81, .15);
+  background-color: $dark-purple;
+  transition: background-color .25s ease-in-out;
+  border: none;
+  border-radius: 5px;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  color: #fff;
+  letter-spacing: .8px;
+  outline: 0;
+  padding: 10px 15px 10px 15px;
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.maria-secondary-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  box-shadow: 0 1px 3px 0 rgba(55, 63, 81, .15);
+  background-color: #fff;
+  transition: color .25s ease-in-out;
+  border: 1px solid $dark-purple;
+  border-radius: 5px;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  color: $light-gray;
+  letter-spacing: .8px;
+  outline: 0;
+  padding: 10px 15px 10px 15px;
+  cursor: pointer;
+  &:hover {
+    transition: color .25s ease-in-out;
+    color: $light-purple;
+  }
+}
+
+.maria-slider-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: none;
+  border-radius: 999px;
+  color: $light-purple;
+  font-size: 16px;
+  background-color: #fff;
+  background: none;
+  border:0;
+  cursor: pointer;
+  svg-icon {
+    height: 24px;
+    fill: $light-purple;
+  }
+}
+
+.maria-slider-button:disabled {
+  cursor: default;
+  color: $light-gray;
+  svg-icon {
+    height: 24px;
+    fill: $light-gray;
+  }
+}
+
+.reverse {
+  transform: rotate(180deg);
+}
+
+.label-active {
+  color: $light-blue;
+  cursor: pointer;
+}
+
+.label-disactivated {
+  color: $light-gray;
+  cursor: default;
+}
+
+.maria-mat-radio-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 5px;
+}

@@ -1,0 +1,36 @@
+<div class="maria-penha-inner-body">
+  <div class="decision-container" *ngIf="userRole === 'juiz' || userRole === 'direitoAgil'">
+    <div *ngIf="loading" style="width: '595.28px'; height: '841.89px';" #document [innerHTML]="trustHtml(doc)"></div>
+    <ng-container *ngIf="!loading">
+      <h2 class="title">Decisão tomada!</h2>
+      <span *ngIf="decisionMade.waitForContraditory" class="text">
+        Processo Nº {{ processo ? processo : ' - ' }} esperar por contraditório
+        pelo baixo risco para vítima
+      </span>
+      <span *ngIf="decisionMade.decideNow" class="text">
+        Processo Nº {{ processo ? processo : ' - ' }} decidido agora
+        pelo risco à vida e integridade da vítima
+      </span>
+      <div class="check">
+        <mat-icon>check_circle</mat-icon>
+      </div>
+    </ng-container>
+  </div>
+  <div class="decision-container" *ngIf="userRole === 'analista' || userRole === 'ti'">
+    <span *ngIf="decisionMade.waitForContraditory" class="text">
+      O Processo Nº {{ processo ? processo : ' - ' }} irá aguardar a decisão de um juiz.
+    </span>
+    <div class="check">
+      <mat-icon>check_circle</mat-icon>
+    </div>
+    <button [disabled]="loading" class="maria-primary-button" (click)="saveChanges()">Salvar as alterações</button>
+  </div>
+  <footer class="maria-glide-buttons-area">
+    <div class="slider-button-container">
+      <button class="maria-slider-button" (click)="previousPage()">
+        <svg-icon src="/assets/icons/glide/chevron-right.svg"></svg-icon>
+        Ir para tela inicial
+      </button>
+    </div>
+  </footer>
+</div>

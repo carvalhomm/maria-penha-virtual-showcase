@@ -1,0 +1,13 @@
+<div *ngIf="data.title" mat-dialog-title>
+  <div class="title">
+    <span>{{data.title}}</span>
+  </div>
+</div>
+<div *ngIf="data.message" mat-dialog-content>
+  <div class="content">
+    <span>{{data.message}}</span>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button class="maria-secondary-button" mat-button matDialogClose cdkFocusInitial>Ok</button>
+</div>

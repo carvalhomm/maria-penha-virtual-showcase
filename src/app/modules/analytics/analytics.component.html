@@ -1,0 +1,27 @@
+<div class="analytics-page">
+  <div class="analytics-actions">
+    <form [formGroup]="formGroup">
+      <mat-checkbox formControlName="decisionFilter">Deseja filtrar somente pelos processos com decisão tomada?</mat-checkbox>
+      <mat-form-field (click)="picker.open()">
+        <mat-label>Filtro por Range de Datas</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input formControlName="minRange" matStartDate placeholder="Data Inicial">
+          <input formControlName="maxRange" matEndDate placeholder="Data Final">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+    </form>
+    <button class="maria-primary-button" (click)="refreshFilters()"><mat-icon>refresh</mat-icon></button>
+    <button class="maria-primary-button" (click)="getAnalyticsData()">Aplicar Filtros</button>
+  </div>
+  <div class="dashboards">
+    <mpv-chart chartTitle="Total de Pedidos Feitos" [setChartData]="totalPedidosFeitos"></mpv-chart>
+    <mpv-chart chartTitle="Total de Pedidos Deferidos" [setChartData]="totalPedidosDeferidos"></mpv-chart>
+    <mpv-chart chartTitle="Total de Pedidos Indeferidos" [setChartData]="totalPedidosIndeferidos"></mpv-chart>
+    <mpv-chart chartTitle="Total de Pedidos Feitos por Bairro" [setChartData]="pedidosPorBairro"></mpv-chart>
+    <mpv-chart chartTitle="Perfil do Agressor por Pedidos Feitos" [setChartData]="perfilAgressorPorPedido"></mpv-chart>
+    <mpv-chart chartTitle="Relacionamento com o Agressor por Pedidos Feitos" [setChartData]="relacionamentoAgressorPorPedido"></mpv-chart>
+    <mpv-chart chartTitle="Medidas Anteriores por Pedidos Feitos" [setChartData]="medidasAnterioresPorPedido"></mpv-chart>
+  </div>
+</div>

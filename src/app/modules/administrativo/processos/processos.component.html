@@ -1,0 +1,10 @@
+<div class="processos-container">
+  <span class="span-field">Selecione um dos processos {{ processoMode === 'feitos' ? 'em andamento' : 'completos' }}:</span>
+  <div class="processos-list">
+    <mat-progress-spinner *ngIf="!processos" mode="indeterminate"></mat-progress-spinner>
+    <div class="processo-box" *ngFor="let processo of processos" (click)="judgeProcess(processo)">
+      <span>{{ processo?.usuario?.nomeCompleto + ' - ' + processo?.dataCriacao | date }}</span>
+    </div>
+    <div class="processos-empty" *ngIf="processos?.length === 0">Não possui processos {{ processoMode === 'feitos' ? 'em andamento' : 'completos' }} no momento</div>
+  </div>
+</div>

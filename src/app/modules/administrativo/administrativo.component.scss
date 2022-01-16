@@ -1,0 +1,41 @@
+@import 'src/styles/variables.scss';
+
+h2 {
+  color: $ice-steel;
+  margin-left: 5px;
+}
+
+.administrativo-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: 200px;
+  padding: 10px;
+  .option-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 250px;
+    height: 150px;
+    border-radius: 20px;
+    box-shadow: $shadow;
+    transition: color 0.5s ease-in-out;
+    color: $ice-steel;
+    mat-icon {
+      transition: color 0.5s ease-in-out;
+      color: $ice-steel;
+    }
+    &:hover {
+      cursor: pointer;
+      transition: color 0.5s ease-in-out;
+      color: $dark-pink;
+      mat-icon {
+        transition: color 0.5s ease-in-out;
+        color: $dark-pink
+      }
+    }
+  }
+}

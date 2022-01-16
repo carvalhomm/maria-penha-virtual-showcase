@@ -1,0 +1,20 @@
+<div class="maria-penha-inner-body">
+  <div class="pdf-container">
+    <mat-progress-spinner *ngIf="!document" mode="indeterminate"></mat-progress-spinner>
+    <ckeditor *ngIf="document" #ckeditor [disabled]="disableForm" [editor]="editor" [data]="document" (ready)="onReady($event)" (change)="onChange($event)"></ckeditor>
+  </div>
+  <footer class="maria-glide-buttons-area">
+    <div class="slider-button-container">
+      <button class="maria-slider-button" (click)="previousPage()">
+        <svg-icon class="reverse" src="/assets/icons/glide/chevron-right.svg"></svg-icon>
+        Voltar
+      </button>
+    </div>
+    <div class="slider-button-container">
+      <button class="maria-slider-button" id="btn-avancar-2" (click)="nextPage()">
+        Avançar
+        <svg-icon src="/assets/icons/glide/chevron-right.svg"></svg-icon>
+      </button>
+    </div>
+  </footer>
+</div>

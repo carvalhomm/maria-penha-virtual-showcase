@@ -1,0 +1,17 @@
+<mat-tab-group>
+  <mat-tab label="Criar nova senha">
+    <mpv-pass-form></mpv-pass-form>
+  </mat-tab>
+  <mat-tab *ngIf="admin" label="Criar novo usuário">
+    <mpv-user-form [mode]="true" [setLocations]="getLocations" [setJuizados]="getJuizados"></mpv-user-form>
+  </mat-tab>
+  <mat-tab *ngIf="admin" label="Editar usuário">
+    <mpv-user-form [mode]="false" [setLocations]="getLocations" [setJuizados]="getJuizados" [setUsers]="getUsers"></mpv-user-form>
+  </mat-tab>
+  <mat-tab *ngIf="admin" label="Criar Juizado">
+    <mpv-comarca-form [mode]="true" [setLocations]="getLocations"></mpv-comarca-form>
+  </mat-tab>
+  <mat-tab *ngIf="admin" label="Editar Juizado">
+    <mpv-comarca-form [mode]="false" [setLocations]="getLocations" [setJuizados]="getJuizados"></mpv-comarca-form>
+  </mat-tab>
+</mat-tab-group>

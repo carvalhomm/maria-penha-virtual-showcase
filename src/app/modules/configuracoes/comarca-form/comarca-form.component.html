@@ -1,0 +1,50 @@
+<div class="form-root">
+    <mat-progress-spinner *ngIf="loading; else form" mode="indeterminate"></mat-progress-spinner>
+    <ng-template #form>
+        <form *ngIf="!createMode" [formGroup]="selectJuizadoForm">
+            <mat-form-field>
+                <mat-label>Selecione o juizado para editar</mat-label>
+                <mat-select formControlName="juizadoSelection" disableOptionCentering>
+                    <mat-option (click)="juizadoSelected(juizado)" *ngFor="let juizado of juizados" [value]="juizado">{{ juizado.nome }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </form>
+        <form *ngIf="createMode || juizado" [formGroup]="formGroup">
+            <mat-form-field>
+                <mat-label>Nome</mat-label>
+                <input matInput formControlName="nome" type="text">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" type="text">
+            </mat-form-field>
+            <mat-radio-group [color]="'accent'" class="maria-mat-radio-group" formControlName="admin" (change)="abrangenciaSelected()">
+                <mat-label>Como é determinado a abrangência da comarca?</mat-label>
+                <mat-radio-button style="margin-right: 10px; margin-left: 10px;" value="cidadesAbrangidas">Abrange cidades</mat-radio-button>
+                <mat-radio-button value="bairrosAbrangidos">Abrange bairros</mat-radio-button>
+            </mat-radio-group>
+            <mat-form-field>
+                <mat-label>{{ abrangenciaLabel }}</mat-label>
+                <mat-select [multiple]="true">
+                    <mat-option>
+                        <ngx-mat-select-search ngModel (ngModelChange)="filterLocais($event)" noEntriesFoundLabel="Local não encontrado"></ngx-mat-select-search>
+                    </mat-option>
+                    <mat-option *ngFor="let local of locaisFilter" (click)="selectLocal(local)">
+                        {{ local }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div class="locais-container">
+                <span>Locais Abrangidos pela Comarca:</span>
+                <div class="local-box" *ngFor="let localAbr of locaisAbrangidos">
+                    <span>{{ localAbr }}</span>
+                    <mat-icon (click)="selectLocal(localAbr, true">delete</mat-icon>
+                </div>
+            </div>
+        </form>
+    </ng-template>
+    <div class="buttons-container">
+        <button class="maria-primary-button" [disabled]="!formGroup || formGroup.invalid" (click)="saveJuizado()">Salvar</button>
+        <button class="maria-primary-button" [disabled]="createMode || formGroup.invalid" (click)="deleteJuizado()">Deletar</button>
+    </div>
+</div>

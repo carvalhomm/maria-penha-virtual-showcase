@@ -1,0 +1,15 @@
+.pdf-container {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  ckeditor {
+    ::ng-deep {
+      .ck.ck-toolbar {
+        border: none;
+      }
+    }
+    ::ng-deep .ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused {
+      border: none;
+    }
+  }
+}

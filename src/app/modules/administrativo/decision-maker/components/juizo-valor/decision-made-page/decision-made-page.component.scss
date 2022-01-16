@@ -1,0 +1,23 @@
+@import 'src/styles/variables.scss';
+
+.decision-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .title {
+    color: $dark-purple;
+  }
+  .text {
+    color: $ice-steel;
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .check {
+    margin-top: 20px;
+    mat-icon {
+      color: #75B980;
+      font-size: 50px;
+    }
+  }
+}

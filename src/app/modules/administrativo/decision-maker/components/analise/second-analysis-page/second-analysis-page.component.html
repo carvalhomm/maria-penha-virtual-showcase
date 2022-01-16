@@ -1,0 +1,27 @@
+<div class="maria-penha-inner-body">
+  <span>Os campos podem ser editados caso haja necessidade</span>
+  <form [formGroup]="formGroup" class="maria-form-group">
+    <mat-checkbox (change)="checkCheckbox($event, violence.key)" *ngFor="let violence of formGroupAuxiliar; let i = index" [color]="'accent'" [formControlName]="violence.key">
+      {{ violence.label }}
+    </mat-checkbox>
+    <mat-form-field>
+      <mat-label>Inserir Outro</mat-label>
+      <input matInput #adicionarNovo type="text" (keyup.enter)="addViolencia(adicionarNovo.value)" />
+      <mat-icon matSuffix (click)="addViolencia(adicionarNovo.value)">plus</mat-icon>
+    </mat-form-field>
+  </form>
+  <footer class="maria-glide-buttons-area">
+    <div class="slider-button-container">
+      <button class="maria-slider-button" (click)="previousPage()">
+        <svg-icon class="reverse" src="/assets/icons/glide/chevron-right.svg"></svg-icon>
+        Voltar
+      </button>
+    </div>
+    <div class="slider-button-container">
+      <button class="maria-slider-button" id="btn-avancar-2" (click)="nextPage()">
+        Avançar
+        <svg-icon src="/assets/icons/glide/chevron-right.svg"></svg-icon>
+      </button>
+    </div>
+  </footer>
+</div>

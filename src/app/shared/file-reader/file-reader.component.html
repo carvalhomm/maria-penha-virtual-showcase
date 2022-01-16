@@ -1,0 +1,29 @@
+<div *ngIf="data.title" mat-dialog-title>
+  <div class="title">
+    <span>{{data.title}}</span>
+  </div>
+</div>
+<div class="content-box" *ngIf="data.midias" mat-dialog-content>
+  <div class="content" [ngClass]="{'content-pdf': checkMidiaType(midia.path) === 'pdf'}" *ngFor="let midia of midias">
+    <ng-container *ngIf="checkMidiaType(midia.path) === 'image'">
+      <img [src]="midia.url" alt="imagem anexada pela vítima" loading="lazy">
+    </ng-container>
+    <ng-container *ngIf="checkMidiaType(midia.path) === 'pdf'">
+      <pdf-viewer [src]="midia.url" [autoresize]="true" [original-size]="false" [render-text]="true" style="display: block;"></pdf-viewer>
+    </ng-container>
+    <ng-container *ngIf="checkMidiaType(midia.path) === 'audio'">
+      <audio [src]="midia.url" controls></audio>
+    </ng-container>
+    <ng-container *ngIf="checkMidiaType(midia.path) === undefined">
+      <h2 *ngIf="midia.path === null">Relato da Vítima por Escrito:</h2>
+      <span [ngClass]="{'relato-vitima': midia.path === null}">{{midia.originalName}}</span>
+    </ng-container>
+    <div *ngIf="midia.path !== null" class="download" (click)="downloadFile(midia)">
+      <mat-icon>download</mat-icon>
+      <span>Download</span>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions align="end">
+  <button class="close-button" (click)="close()">Ok</button>
+</div>

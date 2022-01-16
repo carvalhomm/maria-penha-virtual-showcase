@@ -1,0 +1,79 @@
+<mpv-stepper *ngIf="!hideStepper" [setPage]="stepper.page" [setProcesso]="stepper.processo" [setTipo]="stepper.tipo">
+</mpv-stepper>
+<mat-tab-group class="mpv-stepper-group" [selectedIndex]="currentPageIndex">
+  <mat-tab>
+    <div class="slider-page" [class.active]="true">
+      <mpv-leitura-page #leituraPage [setMode]="mode" [setData]="getDocumentoDenuncia" (previousSlide)="previousSlide($event)" (updateDenuncia)="updateDenuncia($event)"
+        (nextSlide)="nextSlide($event)">
+      </mpv-leitura-page>
+    </div>
+  </mat-tab>
+  <mat-tab>
+    <div class="slider-page" [class.active]="true">
+      <mpv-first-analysis-page #firstAnalysisPage [setMode]="mode" [setData]="getDocumentoDenuncia" 
+        (updateDenuncia)="updateDenuncia($event)" (previousSlide)="previousSlide($event)"
+        (nextSlide)="nextSlide($event)">
+      </mpv-first-analysis-page>
+    </div>
+  </mat-tab>
+  <mat-tab>
+    <div class="slider-page" [class.active]="true">
+      <mpv-second-analysis-page #secondAnalysisPage [setMode]="mode" [setData]="getDocumentoDenuncia" 
+        (updateDenuncia)="updateDenuncia($event)" (previousSlide)="previousSlide($event)"
+        (nextSlide)="nextSlide($event)">
+      </mpv-second-analysis-page>
+    </div>
+  </mat-tab>
+  <mat-tab>
+    <div class="slider-page" [class.active]="true">
+      <mpv-third-analysis-page #thirdAnalysisPage [physicViolenceMarked]="getPhysicViolence"
+        [setMode]="mode" [setData]="getDocumentoDenuncia"  (updateDenuncia)="updateDenuncia($event)"
+        (previousSlide)="previousSlide($event)" (nextSlide)="nextSlide($event)">
+      </mpv-third-analysis-page>
+    </div>
+  </mat-tab>
+  <mat-tab>
+    <div class="slider-page" [class.active]="true">
+      <mpv-first-juizo-valor-page #firstJuizoValorPage [setData]="getDocumentoDenuncia" (updateDenuncia)="updateDenuncia($event)"
+        (previousSlide)="previousSlide($event)" (nextSlide)="nextSlide($event)">
+      </mpv-first-juizo-valor-page>
+    </div>
+  </mat-tab>
+  <mat-tab>
+    <div class="slider-page" [class.active]="true">
+      <mpv-first-risco-page #firstRiscoPage [setMode]="mode" (updateDenuncia)="updateDenuncia($event)"
+        (previousSlide)="previousSlide($event)" (nextSlide)="nextSlide($event)">
+      </mpv-first-risco-page>
+    </div>
+  </mat-tab>
+  <mat-tab>
+    <div class="slider-page" [class.active]="true">
+      <mpv-second-risco-page #secondRiscoPage [setMode]="mode" (updateDenuncia)="updateDenuncia($event)"
+        (previousSlide)="previousSlide($event)" (nextSlide)="nextSlide($event)">
+      </mpv-second-risco-page>
+    </div>
+  </mat-tab>
+  <mat-tab>
+    <div class="slider-page" [class.active]="true">
+      <mpv-third-risco-page #thirdRiscoPage [setMode]="mode" [setData]="getDocumentoDenuncia" (updateDenuncia)="updateDenuncia($event)"
+        (previousSlide)="previousSlide($event)" (nextSlide)="nextSlide($event)">
+      </mpv-third-risco-page>
+    </div>
+  </mat-tab>
+  <mat-tab>
+    <div class="slider-page" [class.active]="true">
+      <ng-container *ngIf="currentPageIndex === 8">
+        <mpv-fourth-risco-page #fourthRiscoPage [setMode]="mode" (updateDenuncia)="updateDenuncia($event)"
+          (previousSlide)="previousSlide($event)" (nextSlide)="nextSlide($event)">
+        </mpv-fourth-risco-page>
+      </ng-container>
+    </div>
+  </mat-tab>
+  <mat-tab>
+    <div class="slider-page" [class.active]="true">
+      <ng-container *ngIf="currentPageIndex === 9">
+        <mpv-decision-made-page #decisionMadePage [setMode]="mode"></mpv-decision-made-page>
+      </ng-container>
+    </div>
+  </mat-tab>
+</mat-tab-group>

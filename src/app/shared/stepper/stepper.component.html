@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="stepper-container">
+        <div class="step-container">
+            <div class="circle" [ngClass]="{'fullfill': page === 1}">1</div>
+            <span>Leitura</span>
+        </div>
+        <div class="step-container">
+            <div class="circle" [ngClass]="{'fullfill': page === 2}">2</div>
+            <span>Análise</span>
+        </div>
+        <div class="step-container">
+            <div class="circle" [ngClass]="{'fullfill': page === 3}">3</div>
+            <span>Juízo de Valor</span>
+        </div>
+    </div>
+    <div class="processo-container">
+        <span class="processo">Processo {{ processo }}</span>
+        <span class="tipo">{{ tipo }}</span>
+    </div>
+</div>

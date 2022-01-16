@@ -1,0 +1,37 @@
+<div class="maria-penha-inner-body">
+  <span>Os campos podem ser editados caso haja necessidade</span>
+  <form *ngIf="formGroup" [formGroup]="formGroup" class="maria-form-group">
+    <mat-checkbox [color]="'accent'" formControlName="agressivo">
+      Agressivo
+    </mat-checkbox>
+    <mat-checkbox [color]="'accent'" formControlName="controlador">
+      Controlador
+    </mat-checkbox>
+    <mat-checkbox [color]="'accent'" formControlName="ciumento">
+      Ciumento
+    </mat-checkbox>
+    <mat-checkbox [color]="'accent'" formControlName="crimeOrganizado">
+      Envolvimento com atividades criminosas
+    </mat-checkbox>
+    <mat-checkbox [color]="'accent'" formControlName="usaAlcool">
+      Faz uso de álcool excessivamente
+    </mat-checkbox>
+    <mat-checkbox [color]="'accent'" formControlName="usaDrogas">
+      Faz uso de drogas excessivamente
+    </mat-checkbox>
+  </form>
+  <footer class="maria-glide-buttons-area">
+    <div class="slider-button-container">
+      <button class="maria-slider-button" (click)="previousPage()">
+        <svg-icon class="reverse" src="/assets/icons/glide/chevron-right.svg"></svg-icon>
+        Voltar
+      </button>
+    </div>
+    <div class="slider-button-container">
+      <button class="maria-slider-button" id="btn-avancar-2" (click)="nextPage()">
+        Avançar
+        <svg-icon src="/assets/icons/glide/chevron-right.svg"></svg-icon>
+      </button>
+    </div>
+  </footer>
+</div>

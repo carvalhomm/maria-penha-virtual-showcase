@@ -1,0 +1,35 @@
+<div class="maria-penha-inner-body">
+  <form [formGroup]="formGroup">
+    <div *ngFor="let control of thirdRisco | keyvalue">
+      <ng-container *ngIf="control.key !== 'outrasMedidasDeferidas'">
+        <mat-checkbox [color]="'accent'" [formControlName]="control.key" (change)="checkChanged($event, control.key, false)">
+          {{ thirdRisco[control.key].label }}
+        </mat-checkbox>
+      </ng-container>
+    </div>
+    <div *ngFor="let control of thirdRisco.outrasMedidasDeferidas | keyvalue">
+      <mat-checkbox [color]="'accent'" [formControlName]="control.key" (change)="checkChanged($event, control.key, true)">
+        {{ thirdRisco.outrasMedidasDeferidas[control.key].label }}
+      </mat-checkbox>
+    </div>
+    <mat-form-field>
+      <mat-label>Inserir outro</mat-label>
+      <input matInput #medidaInput formControlName="adicionarOutraMedida" type="text" (keyup.enter)="addMedidaProtetiva()"/>
+      <mat-icon class="icon-add" (click)="addMedidaProtetiva()" matSuffix>add</mat-icon>
+    </mat-form-field>
+  </form>
+  <footer class="maria-glide-buttons-area">
+    <div class="slider-button-container">
+      <button class="maria-slider-button" (click)="previousPage()">
+        <svg-icon class="reverse" src="/assets/icons/glide/chevron-right.svg"></svg-icon>
+        Voltar
+      </button>
+    </div>
+    <div class="slider-button-container">
+      <button class="maria-slider-button" [disabled]="formGroup.invalid" id="btn-avancar-2" (click)="nextPage()">
+        Avançar
+        <svg-icon src="/assets/icons/glide/chevron-right.svg"></svg-icon>
+      </button>
+    </div>
+  </footer>
+</div>
